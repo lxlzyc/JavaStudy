@@ -9,17 +9,62 @@
     <groupId>com.lxl</groupId>
     <artifactId>JavaWeb</artifactId>
     <packaging>war</packaging>
-    <name>JavaWeb Maven Webapp</name>
+    <name>JavaWeb</name>
     <url>http://maven.apache.org</url>
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <!--  Spring Boot war 包配置  -->
     <build>
         <finalName>JavaWeb</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warSourceExcludes>src/main/resources/**</warSourceExcludes>
+                </configuration>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 是否替换资源中的属性-->
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <!--
+                    <includes> <include>**/*.properties</include>
+                    <include>**/*.xml</include> </includes> <filtering>true</filtering>
+                -->
+            </resource>
+        </resources>
     </build>
+    <!--  Spring Boot 区分正式测试环境别名  -->
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <maven.test.skip>true</maven.test.skip>
+                <scope.jar>compile</scope.jar>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <maven.test.skip>true</maven.test.skip>
+                <scope.jar>provided</scope.jar>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
