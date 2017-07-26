@@ -1,5 +1,5 @@
 # JavaStudy
-======
+
 ## 项目概要
     1.本项目用于java基础及进阶学习，并以java web形式扩展。
     2.本项目使用IDEA 2016开发，使用maven构建,使用Spring Boot与MyBatis，数据库使用MySQL5.6+
