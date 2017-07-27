@@ -10,6 +10,8 @@
     <modules>
         <module>JavaWeb</module>
         <module>JavaBasic</module>
+        <module>DataStructures</module>
+        <module>Algorithms</module>
     </modules>
 
     <build>

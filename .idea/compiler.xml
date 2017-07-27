@@ -6,12 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Algorithms" />
+        <module name="DataStructures" />
         <module name="java-study-web" />
         <module name="JavaBasic" />
         <module name="JavaWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Algorithms" target="1.8" />
+      <module name="DataStructures" target="1.8" />
       <module name="java-study-basic" target="1.8" />
       <module name="java-study-web" target="1.8" />
       <module name="JavaBasic" target="1.8" />
